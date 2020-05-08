@@ -18,13 +18,13 @@ export const commentsReducer = (state = initialState, action) => {
       localStorage.setItem('comments', JSON.stringify(newState));
 
       return newState;
+
     case DELETE_COMMENT:
-
-      const newStateAfterDelete = action.payload;
-      localStorage.setItem('comments', JSON.stringify(newStateAfterDelete));
-
-      return newStateAfterDelete;
       
+      const stateAfterDelete = state.filter(el => el.id !== action.id)
+      localStorage.setItem('comments', JSON.stringify(stateAfterDelete));
+      return stateAfterDelete
+
     default: return state
   }
 }

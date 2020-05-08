@@ -16,10 +16,10 @@ export const addComment = (text, author) => {
   }
 }
 
-export const deleteComment = (commentsAfterDelete) => {
+export const deleteComment = (id) => {
   
   return {
     type: DELETE_COMMENT,
-    payload: commentsAfterDelete
+    id,
   }
 }
